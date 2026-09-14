@@ -1,0 +1,27 @@
+[package]
+name = "pq0x-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Async Runtime & Web Framework
+tokio = { version = "1.38", features = ["full"] }
+axum = { version = "0.7", features = ["json"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+
+# SQLite Async Database
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite", "chrono"] }
+
+# Post-Quantum & Hashing Cryptography
+pqcrypto-mldsa = "0.1"       # Standardized NIST ML-DSA-65
+pqcrypto-traits = "0.3"      # Trait abstractions for PQ keys & signatures
+blake3 = "1.5"               # Fast BLAKE3 address hashing
+
+# Utilities
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+rand = "0.8"
+hex = "0.4"
